@@ -1,7 +1,7 @@
 # recomendador/recomendador.py
 
 import heapq
-from db import Neo4jConnection
+from database.db import Neo4jConnection
 
 class Recomendador:
     def __init__(self, neo4j_conn: Neo4jConnection):

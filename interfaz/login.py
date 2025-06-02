@@ -1,7 +1,7 @@
 # interface/login.py
 
 import solara
-from database.db import Neo4jConnection
+from database.db import Neo4jConnection  
 
 def login_page():
     """
@@ -46,8 +46,6 @@ def login_page():
             login_message.set_value("Contraseña incorrecta.")
             return
         login_message.set_value(f"¡Bienvenido, {username.value}!")
-        # Aquí puedes redirigir a la siguiente parte de la aplicación
-        # por ejemplo: solara.navigate("/dashboard")
 
     def handle_register():
         register_message.set_value("")

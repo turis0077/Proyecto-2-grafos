@@ -1,6 +1,6 @@
 # scripts/inicializar_db.py
 
-from db import Neo4jConnector
+from database.db import Neo4jConnection
 
 def crear_atributos(conn):
     """
@@ -164,7 +164,7 @@ def crear_usuarios(conn):
     print("Usuarios de prueba creados, relacionados y recomendaciones simuladas.")
 
 def main():
-    con = Neo4jConnector()
+    con = Neo4jConnection()
 
     crear_atributos(con)
     crear_mascotas(con)

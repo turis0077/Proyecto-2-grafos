@@ -1,10 +1,10 @@
 # interfaz/recomendaciones.py
 
 import solara
-from conexion.conexion_neo4j import Neo4jConnector
+from database.db import Neo4jConnection
 from recomendador.recomendador import Recomendador
 
-neo4j_conn = Neo4jConnector()
+neo4j_conn = Neo4jConnection()
 reco = Recomendador(neo4j_conn)
 
 @solara.component

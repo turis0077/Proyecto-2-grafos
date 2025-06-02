@@ -1,9 +1,9 @@
 # interface/app.py
 
 import solara
-from interfaz.login import Login
-from interfaz.recomendaciones import Recomendaciones
-from interfaz.social import Social
+from interface.login import Login
+from interface.recomendaciones import Recomendaciones
+from interface.social import Social
 
 @solara.component
 def App():

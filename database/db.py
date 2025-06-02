@@ -14,7 +14,7 @@ class Neo4jConnection:
         uri = os.getenv("NEO4J_URI")
         user = os.getenv("NEO4J_USER")
         password = os.getenv("NEO4J_PASSWORD")
-        if not uri or not user or not pwd:
+        if not uri or not user or not password:
             raise RuntimeError("Faltan variables de entorno para la conexión a Neo4j")
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
 
@@ -41,7 +41,7 @@ Se encarga de verificar que la conexion este bien configurada en .env.
 """
 def test_conexion():
     try:
-        conn = Neo4jConnector()
+        conn = Neo4jConnection()
     except RuntimeError as e:
         print(f"Error al leer .env: {e}")
         return

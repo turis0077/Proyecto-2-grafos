@@ -20,26 +20,26 @@ class Neo4jConnection:
 
 
     def close(self):
+        """ Cierra la conexión al driver de Neo4j cuando no se necesita. """
         self.driver.close()
 
-    """
-    Ejecuta una consulta en la base de datos Neo4j y devuelve los resultados.
-    :param query: Consulta Cypher a ejecutar.
-    :param parameters: Parámetros opcionales para la consulta.
-    :return: Resultados de la consulta.
-    """
     def run_query(self, query, parameters: dict = None):
- 
+        """
+        Ejecuta una consulta en la base de datos Neo4j y devuelve los resultados.
+        :param query: Consulta Cypher a ejecutar.
+        :param parameters: Parámetros opcionales para la consulta.
+        :return: Resultados de la consulta.
+        """
         with self.driver.session() as session:
             result = session.run(query, parameters or {})
             return list(result)
 
-"""
-Función de prueba manual.
-Solo se ejecuta si corres 'python db.py' directamente.
-Se encarga de verificar que la conexion este bien configurada en .env.
-"""
 def test_conexion():
+    """
+    Función de prueba manual.
+    Solo se ejecuta si se corre 'python db.py' directamente.
+    Se encarga de verificar que la conexion este bien configurada en .env.
+    """
     try:
         conn = Neo4jConnection()
     except RuntimeError as e:

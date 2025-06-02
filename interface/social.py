@@ -69,8 +69,7 @@ def Social():
         set_texto("")
         cargar_comentarios(mascota_sel)
 
-    return solara.Card(
-        [
+    return solara.Card([
             solara.Markdown("## Sección Social: Comentarios de Usuarios"),
             solara.Select(
                 label="Elige una mascota",
@@ -91,6 +90,5 @@ def Social():
             ] or [solara.Markdown("_Sin comentarios aún_")],
             solara.Separator(),
             solara.TextArea("Escribe tu comentario", value=texto, on_change=set_texto),
-            solara.Button("Enviar comentario", on_click=on_submit_comentario),
-        ]
-    )
+            solara.Button("Enviar comentario", on_click=on_submit_comentario)
+            ])
